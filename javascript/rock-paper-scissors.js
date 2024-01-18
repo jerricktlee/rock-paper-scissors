@@ -41,3 +41,42 @@ function getComputerChoice() {
    }
    return computerChoice;
 }
+
+function playRound(playerSelection, computerSelection) {
+   switch (playerSelection) {
+      case "rock":
+         if (computerSelection === "rock") {
+            return "You Tied! Rock ties with Rock";
+         }
+         else if (computerSelection === "paper") {
+            return "You Lose! Paper beats Rock";
+         }
+         else if (computerSelection === "scissors") {
+            return "You Win! Rock beats Scissors";
+         }
+      break;
+      case "paper":
+         if (computerSelection === "rock") {
+            return "You Won! Paper beats Rock";
+         }
+         else if (computerSelection === "paper") {
+            return "You Tied! Paper ties with Paper";
+         }
+         else if (computerSelection === "scissors") {
+            return "You Lose! Scissors beats Paper";
+         }
+      break;
+      case "scissors":
+         if (computerSelection === "rock") {
+            return "You Lose! Rock beats Scissors";
+         }
+         else if (computerSelection === "paper") {
+            return "You Won! Scissors beats Paper";
+         }
+         else if (computerSelection === "scissors") {
+            return "You Tied! Scissors ties with Scissors";
+         }
+      break;
+
+   }
+}
