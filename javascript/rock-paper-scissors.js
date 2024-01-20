@@ -1,14 +1,4 @@
-function getPlayerChoice() {
-   let playerChoice = prompt("Pick: Rock, Paper, Scissors");
-   playerChoice = playerChoice.toLowerCase();
-
-   if (playerChoice === "rock" || playerChoice ==="paper" || playerChoice === "scissors") {
-      return playerChoice;
-   }
-   else {
-      console.log("Invalid input.");
-   }
-}
+let playerBtns = document.querySelectorAll(".player-btn");
 
 function getComputerChoice() {
    let computerChoice;
@@ -64,6 +54,13 @@ function playRound(playerSelection, computerSelection) {
       break;
    }
 }
+
+playerBtns.forEach((button) => {
+   button.addEventListener('click', () => {
+      let playerSelection = button.textContent.toLowerCase();
+      alert(playRound(playerSelection, getComputerChoice()));
+   })
+})
 
 // function game() {
 //    let playerWinCount = 0;
