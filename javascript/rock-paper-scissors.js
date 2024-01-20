@@ -1,18 +1,3 @@
-/*
-Psuedocode:
-Get string input from user.
-Format string input to be case-insensitive
-getComputerChoice function:
-   Generate a random number from 1-3: 1 = rock, 2 = paper, 3 = scissors
-playRound function:
-   Takes 2 arguments: playerChoice and computerChoice and plays a game of rock paper scissosrs
-   Needs to account for ties
-game function:
-Initalize counter var
-Call playRound function 5 times and updates counter var
-Reports a winnwer or loser at the end
-*/
-
 function getPlayerChoice() {
    let playerChoice = prompt("Pick: Rock, Paper, Scissors");
    playerChoice = playerChoice.toLowerCase();
@@ -80,76 +65,76 @@ function playRound(playerSelection, computerSelection) {
    }
 }
 
-function game() {
-   let playerWinCount = 0;
-   let computerWinCount = 0;
-   let winner;
+// function game() {
+//    let playerWinCount = 0;
+//    let computerWinCount = 0;
+//    let winner;
 
-   let playerSelection = getPlayerChoice();
-   let computerSelection = getComputerChoice();
-   let result = playRound(playerSelection, computerSelection);
-   if (result.includes("Win")) {
-      playerWinCount++;
-   } else if (result.includes("Lose")) {
-      computerWinCount++;
-   }
-   console.log("Game 1:\n" + result);
-   console.log(`Player Wins: ${playerWinCount}`);
-   console.log(`Computer Wins: ${computerWinCount}`);
+//    let playerSelection = getPlayerChoice();
+//    let computerSelection = getComputerChoice();
+//    let result = playRound(playerSelection, computerSelection);
+//    if (result.includes("Win")) {
+//       playerWinCount++;
+//    } else if (result.includes("Lose")) {
+//       computerWinCount++;
+//    }
+//    console.log("Game 1:\n" + result);
+//    console.log(`Player Wins: ${playerWinCount}`);
+//    console.log(`Computer Wins: ${computerWinCount}`);
 
-   playerSelection = getPlayerChoice();
-   computerSelection = getComputerChoice();
-   result = playRound(playerSelection, computerSelection);
-   if (result.includes("Win")) {
-      playerWinCount++;
-   } else if (result.includes("Lose")) {
-      computerWinCount++;
-   }
-   console.log("Game 2:\n" + result);
-   console.log(`Player Wins: ${playerWinCount}`);
-   console.log(`Computer Wins: ${computerWinCount}`);
+//    playerSelection = getPlayerChoice();
+//    computerSelection = getComputerChoice();
+//    result = playRound(playerSelection, computerSelection);
+//    if (result.includes("Win")) {
+//       playerWinCount++;
+//    } else if (result.includes("Lose")) {
+//       computerWinCount++;
+//    }
+//    console.log("Game 2:\n" + result);
+//    console.log(`Player Wins: ${playerWinCount}`);
+//    console.log(`Computer Wins: ${computerWinCount}`);
 
-   playerSelection = getPlayerChoice();
-   computerSelection = getComputerChoice();
-   result = playRound(playerSelection, computerSelection);
-   if (result.includes("Win")) {
-      playerWinCount++;
-   } else if (result.includes("Lose")) {
-      computerWinCount++;
-   }
-   console.log("Game 3:\n" + result);
-   console.log(`Player Wins: ${playerWinCount}`);
-   console.log(`Computer Wins: ${computerWinCount}`);
+//    playerSelection = getPlayerChoice();
+//    computerSelection = getComputerChoice();
+//    result = playRound(playerSelection, computerSelection);
+//    if (result.includes("Win")) {
+//       playerWinCount++;
+//    } else if (result.includes("Lose")) {
+//       computerWinCount++;
+//    }
+//    console.log("Game 3:\n" + result);
+//    console.log(`Player Wins: ${playerWinCount}`);
+//    console.log(`Computer Wins: ${computerWinCount}`);
 
-   playerSelection = getPlayerChoice();
-   computerSelection = getComputerChoice();
-   result = playRound(playerSelection, computerSelection);
-   if (result.includes("Win")) {
-      playerWinCount++;
-   } else if (result.includes("Lose")) {
-      computerWinCount++;
-   }
-   console.log("Game 4:\n" + result);
-   console.log(`Player Wins: ${playerWinCount}`);
-   console.log(`Computer Wins: ${computerWinCount}`);
+//    playerSelection = getPlayerChoice();
+//    computerSelection = getComputerChoice();
+//    result = playRound(playerSelection, computerSelection);
+//    if (result.includes("Win")) {
+//       playerWinCount++;
+//    } else if (result.includes("Lose")) {
+//       computerWinCount++;
+//    }
+//    console.log("Game 4:\n" + result);
+//    console.log(`Player Wins: ${playerWinCount}`);
+//    console.log(`Computer Wins: ${computerWinCount}`);
 
-   playerSelection = getPlayerChoice();
-   computerSelection = getComputerChoice();
-   result = playRound(playerSelection, computerSelection);
-   if (result.includes("Win")) {
-      playerWinCount++;
-   } else if (result.includes("Lose")) {
-      computerWinCount++;
-   }
-   console.log("Game 5:\n" + result);
-   console.log(`Player Wins: ${playerWinCount}`);
-   console.log(`Computer Wins: ${computerWinCount}`);
+//    playerSelection = getPlayerChoice();
+//    computerSelection = getComputerChoice();
+//    result = playRound(playerSelection, computerSelection);
+//    if (result.includes("Win")) {
+//       playerWinCount++;
+//    } else if (result.includes("Lose")) {
+//       computerWinCount++;
+//    }
+//    console.log("Game 5:\n" + result);
+//    console.log(`Player Wins: ${playerWinCount}`);
+//    console.log(`Computer Wins: ${computerWinCount}`);
 
-   if (playerWinCount > computerWinCount) {
-      console.log("You won the game!");
-   } else if (playerWinCount < computerWinCount) {
-      console.log("You lose the game!");
-   } else {
-      console.log("You tied with the computer!");
-   }
-}
+//    if (playerWinCount > computerWinCount) {
+//       console.log("You won the game!");
+//    } else if (playerWinCount < computerWinCount) {
+//       console.log("You lose the game!");
+//    } else {
+//       console.log("You tied with the computer!");
+//    }
+// }
