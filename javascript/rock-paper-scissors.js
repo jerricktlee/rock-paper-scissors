@@ -1,4 +1,24 @@
-let playerBtns = document.querySelectorAll(".player-btn");
+const playerBtns = document.querySelectorAll('.player-btn');
+const resultsSection = document.querySelector('.results-section');
+
+let playerScore = 0;
+let computerScore = 0;
+let roundResult = document.createElement('p');
+let playerScorePara = document.createElement('p');
+let computerScorePara = document.createElement('p');
+let matchResultPara = document.createElement('p');
+let restartBtn = document.createElement('button');
+restartBtn.textContent = "Restart";
+restartBtn.disabled = true;
+
+playerBtns.forEach((button) => {
+   button.addEventListener('click', () => {
+      let playerSelection = button.textContent.toLowerCase();
+      displayResult(playRound(playerSelection, getComputerChoice()));
+   })
+});
+
+restartBtn.addEventListener('click', () => restartGame());
 
 function getComputerChoice() {
    let computerChoice;
@@ -55,83 +75,49 @@ function playRound(playerSelection, computerSelection) {
    }
 }
 
-playerBtns.forEach((button) => {
-   button.addEventListener('click', () => {
-      let playerSelection = button.textContent.toLowerCase();
-      alert(playRound(playerSelection, getComputerChoice()));
-   })
-})
+function displayResult(resultStr) {
+   roundResult.textContent = resultStr;
+   resultsSection.appendChild(roundResult);
+   
+   if (resultStr.includes("Win")) {
+      playerScore++;
+   }
+   else if (resultStr.includes("Lose")) {
+      computerScore++;
+   }
 
-// function game() {
-//    let playerWinCount = 0;
-//    let computerWinCount = 0;
-//    let winner;
+   playerScorePara.textContent = `Player Wins: ${playerScore}`;
+   computerScorePara.textContent = `Computer Wins: ${computerScore}`;
+   resultsSection.appendChild(playerScorePara);
+   resultsSection.appendChild(computerScorePara);
 
-//    let playerSelection = getPlayerChoice();
-//    let computerSelection = getComputerChoice();
-//    let result = playRound(playerSelection, computerSelection);
-//    if (result.includes("Win")) {
-//       playerWinCount++;
-//    } else if (result.includes("Lose")) {
-//       computerWinCount++;
-//    }
-//    console.log("Game 1:\n" + result);
-//    console.log(`Player Wins: ${playerWinCount}`);
-//    console.log(`Computer Wins: ${computerWinCount}`);
+   if (playerScore === 5 || computerScore === 5) {
+      gameOver();
+   }
+}
 
-//    playerSelection = getPlayerChoice();
-//    computerSelection = getComputerChoice();
-//    result = playRound(playerSelection, computerSelection);
-//    if (result.includes("Win")) {
-//       playerWinCount++;
-//    } else if (result.includes("Lose")) {
-//       computerWinCount++;
-//    }
-//    console.log("Game 2:\n" + result);
-//    console.log(`Player Wins: ${playerWinCount}`);
-//    console.log(`Computer Wins: ${computerWinCount}`);
+function gameOver() {
+   playerBtns.forEach((button) => button.disabled = true);
+   if (playerScore > computerScore) {
+      matchResultPara.textContent = 'You won the match!';
+   }
+   else {
+      matchResultPara.textContent = 'You lost the match.';
+   }
+   resultsSection.appendChild(matchResultPara);
 
-//    playerSelection = getPlayerChoice();
-//    computerSelection = getComputerChoice();
-//    result = playRound(playerSelection, computerSelection);
-//    if (result.includes("Win")) {
-//       playerWinCount++;
-//    } else if (result.includes("Lose")) {
-//       computerWinCount++;
-//    }
-//    console.log("Game 3:\n" + result);
-//    console.log(`Player Wins: ${playerWinCount}`);
-//    console.log(`Computer Wins: ${computerWinCount}`);
+   restartBtn.disabled = false;
+   resultsSection.appendChild(restartBtn);
+}
 
-//    playerSelection = getPlayerChoice();
-//    computerSelection = getComputerChoice();
-//    result = playRound(playerSelection, computerSelection);
-//    if (result.includes("Win")) {
-//       playerWinCount++;
-//    } else if (result.includes("Lose")) {
-//       computerWinCount++;
-//    }
-//    console.log("Game 4:\n" + result);
-//    console.log(`Player Wins: ${playerWinCount}`);
-//    console.log(`Computer Wins: ${computerWinCount}`);
-
-//    playerSelection = getPlayerChoice();
-//    computerSelection = getComputerChoice();
-//    result = playRound(playerSelection, computerSelection);
-//    if (result.includes("Win")) {
-//       playerWinCount++;
-//    } else if (result.includes("Lose")) {
-//       computerWinCount++;
-//    }
-//    console.log("Game 5:\n" + result);
-//    console.log(`Player Wins: ${playerWinCount}`);
-//    console.log(`Computer Wins: ${computerWinCount}`);
-
-//    if (playerWinCount > computerWinCount) {
-//       console.log("You won the game!");
-//    } else if (playerWinCount < computerWinCount) {
-//       console.log("You lose the game!");
-//    } else {
-//       console.log("You tied with the computer!");
-//    }
-// }
+function restartGame() {
+   restartBtn.disabled = true;
+   restartBtn.remove();
+   matchResultPara.remove();
+   playerScore = 0;
+   computerScore = 0;
+   playerScorePara.remove();
+   computerScorePara.remove();
+   roundResult.remove();
+   playerBtns.forEach((button) => button.disabled = false);
+}
